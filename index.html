@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COD Zombies - Login</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+    <div class="background-overlay"></div>
+    
+    <div class="login-container">
+        <div class="login-box">
+            <div class="zombie-logo">
+                <h1 class="glitch" data-text="BLACK OPS ZOMBIES">BLACK OPS ZOMBIES</h1>
+                <p class="subtitle">CLASIFICADO - ACCESO RESTRINGIDO</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="email">
+                        <span class="icon">👤</span>
+                        AGENTE
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        placeholder="nombre@grupo935.com" 
+                        required
+                        autocomplete="email"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <span class="icon">🔒</span>
+                        CÓDIGO DE ACCESO
+                    </label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        placeholder="••••••••" 
+                        required
+                        autocomplete="current-password"
+                    >
+                </div>
+
+                <button type="submit" class="btn-login">
+                    <span class="btn-text">INICIAR MISIÓN</span>
+                    <span class="btn-glow"></span>
+                </button>
+
+                <p id="mensaje" class="error-message"></p>
+
+                <div class="form-footer">
+                    <p class="switch-form">
+                        ¿No tienes cuenta? 
+                        <a href="register.html" class="link-switch">Regístrate aquí</a>
+                    </p>
+                </div>
+            </form>
+
+            <div class="login-footer">
+                <p class="warning-text">⚠ ADVERTENCIA: SOLO PERSONAL AUTORIZADO DEL GRUPO 935 ⚠</p>
+                <p class="coordinates">COORDENADAS: 51.5074° N, 0.1278° W</p>
+            </div>
+        </div>
+
+        <div class="zombie-effects">
+            <div class="blood-splatter"></div>
+            <div class="scanner-line"></div>
+        </div>
+    </div>
+
+    <!-- Espacio reservado para scripts de Firebase -->
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script> 
+    
+    <script src="js/app.js"></script>
+</body>
+</html>

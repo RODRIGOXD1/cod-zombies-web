@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COD Zombies - Registro</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+    <div class="background-overlay"></div>
+    
+    <div class="login-container">
+        <div class="login-box">
+            <div class="zombie-logo">
+                <h1 class="glitch" data-text="RECLUTAMIENTO">RECLUTAMIENTO</h1>
+                <p class="subtitle">REGISTRO DE NUEVO AGENTE - GRUPO 935</p>
+            </div>
+
+            <form id="registerForm" class="login-form">
+                <div class="form-group">
+                    <label for="registerEmail">
+                        <span class="icon">👤</span>
+                        CORREO ELECTRÓNICO
+                    </label>
+                    <input 
+                        type="email" 
+                        id="registerEmail" 
+                        placeholder="agente@grupo935.com" 
+                        required
+                        autocomplete="email"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="registerPassword">
+                        <span class="icon">🔒</span>
+                        CONTRASEÑA
+                    </label>
+                    <input 
+                        type="password" 
+                        id="registerPassword" 
+                        placeholder="Mínimo 6 caracteres" 
+                        required
+                        autocomplete="new-password"
+                    >
+                    <small class="input-hint">Debe tener al menos 6 caracteres</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">
+                        <span class="icon">🔐</span>
+                        CONFIRMAR CONTRASEÑA
+                    </label>
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        placeholder="Repite tu contraseña" 
+                        required
+                        autocomplete="new-password"
+                    >
+                </div>
+
+                <button type="submit" class="btn-login">
+                    <span class="btn-text">REGISTRAR AGENTE</span>
+                    <span class="btn-glow"></span>
+                </button>
+
+                <p id="mensajeRegistro" class="error-message"></p>
+
+                <div class="form-footer">
+                    <p class="switch-form">
+                        ¿Ya tienes cuenta? 
+                        <a href="index.html" class="link-switch">Iniciar Sesión</a>
+                    </p>
+                </div>
+            </form>
+
+            <div class="login-footer">
+                <p class="warning-text">⚠ NUEVO RECLUTA DEL GRUPO 935 ⚠</p>
+                <p class="coordinates">INSTALACIÓN: DER RIESE</p>
+            </div>
+        </div>
+
+        <div class="zombie-effects">
+            <div class="blood-splatter"></div>
+            <div class="scanner-line"></div>
+        </div>
+    </div>
+
+    <!-- Espacio reservado para scripts de Firebase -->
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script> 
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script> 
+    
+   <script src="js/app.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>

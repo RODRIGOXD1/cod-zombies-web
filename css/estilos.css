@@ -1,0 +1,1049 @@
+/* ============================================
+   ESTILOS GENERALES Y VARIABLES
+   ============================================ */
+:root {
+    --color-primary: #8B0000;
+    --color-secondary: #FF4500;
+    --color-accent: #00FF00;
+    --color-dark: #0a0a0a;
+    --color-darker: #050505;
+    --color-text: #e0e0e0;
+    --color-text-dim: #888;
+    --color-border: #333;
+    --color-glow: #ff0000;
+    --font-main: 'Orbitron', sans-serif;
+    --font-title: 'Metal Mania', cursive;
+    --font-horror: 'Creepster', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-darker);
+    color: var(--color-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Overlay de fondo oscuro */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(255, 69, 0, 0.08) 0%, transparent 50%),
+        linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.background-overlay::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px);
+    opacity: 0.3;
+}
+
+/* ============================================
+   PÁGINA DE LOGIN
+   ============================================ */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-box {
+    background: rgba(10, 10, 10, 0.95);
+    border: 2px solid var(--color-primary);
+    border-radius: 10px;
+    padding: 40px 30px;
+    box-shadow: 
+        0 0 30px rgba(139, 0, 0, 0.5),
+        inset 0 0 50px rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-box::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary), var(--color-primary));
+    border-radius: 10px;
+    z-index: -1;
+    opacity: 0.3;
+    filter: blur(10px);
+}
+
+/* Logo y título */
+.zombie-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.glitch {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    color: var(--color-secondary);
+    text-shadow: 
+        0 0 10px var(--color-glow),
+        0 0 20px var(--color-glow),
+        0 0 30px var(--color-glow);
+    position: relative;
+    animation: glitch 3s infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes glitch {
+    0%, 90%, 100% {
+        transform: translateX(0);
+    }
+    92% {
+        transform: translateX(-5px);
+    }
+    94% {
+        transform: translateX(5px);
+    }
+    96% {
+        transform: translateX(-5px);
+    }
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0%, 49%, 100% {
+        opacity: 1;
+    }
+    50%, 99% {
+        opacity: 0.3;
+    }
+}
+
+/* Formulario */
+.login-form {
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.form-group .icon {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid var(--color-border);
+    border-radius: 5px;
+    color: var(--color-text);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.form-group input::placeholder {
+    color: var(--color-text-dim);
+}
+
+/* Botón de login */
+.btn-login {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border: 2px solid var(--color-secondary);
+    border-radius: 5px;
+    color: #fff;
+    font-family: var(--font-main);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 5px 20px rgba(255, 69, 0, 0.6),
+        0 0 30px rgba(139, 0, 0, 0.8);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+.btn-login .btn-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-login:hover .btn-glow {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-text {
+    position: relative;
+    z-index: 1;
+}
+
+/* Mensaje de error */
+.error-message {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(139, 0, 0, 0.3);
+    border-left: 4px solid var(--color-primary);
+    border-radius: 3px;
+    color: var(--color-secondary);
+    font-size: 0.9rem;
+    min-height: 20px;
+}
+
+/* Hints de input */
+.input-hint {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.75rem;
+    color: var(--color-text-dim);
+    font-style: italic;
+}
+
+/* Footer del formulario */
+.form-footer {
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+}
+
+.switch-form {
+    color: var(--color-text-dim);
+    font-size: 0.9rem;
+}
+
+.link-switch {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.link-switch:hover {
+    color: var(--color-secondary);
+    text-shadow: 0 0 10px var(--color-secondary);
+}
+
+.link-switch::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-secondary);
+    transition: width 0.3s ease;
+}
+
+.link-switch:hover::after {
+    width: 100%;
+}
+
+/* Footer del login */
+.login-footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.warning-text {
+    color: var(--color-secondary);
+    margin-bottom: 8px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.coordinates {
+    color: var(--color-text-dim);
+    font-family: 'Courier New', monospace;
+}
+
+/* Efectos adicionales */
+.zombie-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.blood-splatter {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(139, 0, 0, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(10px);
+}
+
+.scanner-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+    animation: scan 4s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes scan {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+/* ============================================
+   PÁGINA HOME
+   ============================================ */
+.home-page {
+    min-height: 100vh;
+}
+
+/* Header */
+.main-header {
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.98) 0%, rgba(10, 10, 10, 0.95) 100%);
+    border-bottom: 3px solid var(--color-primary);
+    padding: 20px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.main-title {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    color: var(--color-secondary);
+    text-shadow: 
+        0 0 10px var(--color-glow),
+        0 0 20px var(--color-glow);
+    margin-bottom: 5px;
+}
+
+.header-subtitle {
+    font-size: 0.8rem;
+    color: var(--color-accent);
+    letter-spacing: 2px;
+}
+
+.btn-logout {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    border: 2px solid var(--color-primary);
+    border-radius: 5px;
+    color: var(--color-text);
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-logout:hover {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Sección de Video */
+.video-section {
+    padding: 60px 20px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.video-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    color: var(--color-secondary);
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px var(--color-glow);
+}
+
+.title-icon {
+    margin-right: 10px;
+    font-size: 2.2rem;
+}
+
+.video-wrapper {
+    position: relative;
+    background: #000;
+    border: 3px solid var(--color-primary);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 
+        0 0 40px rgba(139, 0, 0, 0.4),
+        inset 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+.video-wrapper video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    pointer-events: none;
+}
+
+.classified-stamp {
+    background: rgba(139, 0, 0, 0.9);
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    border: 3px solid var(--color-secondary);
+    transform: rotate(-15deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+/* Sección de Categorías */
+.categories-section {
+    padding: 60px 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.category-block {
+    margin-bottom: 80px;
+}
+
+.category-title {
+    font-family: var(--font-title);
+    font-size: 2.2rem;
+    color: var(--color-secondary);
+    text-align: center;
+    margin-bottom: 50px;
+    text-shadow: 0 0 10px var(--color-glow);
+    position: relative;
+}
+
+.category-title::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+    margin: 15px auto 0;
+}
+
+.category-title .icon {
+    font-size: 2.5rem;
+    margin-right: 15px;
+}
+
+/* Grid de personajes */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.character-card {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.95));
+    border: 2px solid var(--color-border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.character-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-primary);
+    box-shadow: 
+        0 10px 40px rgba(139, 0, 0, 0.4),
+        0 0 30px rgba(255, 69, 0, 0.3);
+}
+
+.card-image {
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    background-color: #1a1a1a;
+}
+
+/* ============================================
+   IMÁGENES DE PERSONAJES PRIMIS
+   ============================================
+   Para agregar tus propias imágenes:
+   
+   1. Guarda las imágenes en la carpeta /img/ con estos nombres:
+      - richtofen.jpg (o .png)
+      - nikolai.jpg
+      - takeo.jpg
+      - dempsey.jpg
+   
+   2. Luego descomenta y actualiza estas líneas:
+*/
+
+.primis-1 {
+    /* RICHTOFEN - Descomentar cuando tengas la imagen */
+    /* background-image: url('../img/richtofen.jpg'); */
+    
+    /* Placeholder temporal (puedes eliminarlo después) */
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="40" fill="%238B0000">🧪</text></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.primis-2 {
+    /* NIKOLAI - Descomentar cuando tengas la imagen */
+    /* background-image: url('../img/nikolai.jpg'); */
+    
+    /* Placeholder temporal */
+    background: linear-gradient(135deg, #2e1a1a 0%, #3e1616 100%);
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="40" fill="%238B0000">🍺</text></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.primis-3 {
+    /* TAKEO - Descomentar cuando tengas la imagen */
+    /* background-image: url('../img/takeo.jpg'); */
+    
+    /* Placeholder temporal */
+    background: linear-gradient(135deg, #1a2e1a 0%, #163e16 100%);
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="40" fill="%238B0000">⚔️</text></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.primis-4 {
+    /* DEMPSEY - Descomentar cuando tengas la imagen */
+    /* background-image: url('../img/dempsey.jpg'); */
+    
+    /* Placeholder temporal */
+    background: linear-gradient(135deg, #2e2e1a 0%, #3e3e16 100%);
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="40" fill="%238B0000">💪</text></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    font-size: 1.4rem;
+    color: var(--color-secondary);
+    margin-bottom: 8px;
+}
+
+.character-role {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.character-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-dim);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stat {
+    font-size: 0.85rem;
+    color: var(--color-text);
+    padding: 5px 10px;
+    background: rgba(139, 0, 0, 0.2);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 3px;
+}
+
+/* Grid de Perks */
+.perks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.perk-card {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(10, 10, 10, 0.98));
+    border: 2px solid var(--color-border);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.perk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.perk-card:hover::before {
+    opacity: 1;
+}
+
+.perk-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(139, 0, 0, 0.3);
+}
+
+.perk-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    /* 
+    ============================================
+    ESPACIO PARA IMAGEN DE PERK
+    ============================================
+    Para agregar imagen real del perk:
+    
+    1. Guarda las imágenes en /img/ con nombres:
+       - juggernog.png
+       - speed-cola.png
+       - quick-revive.png
+       - double-tap.png
+       - stamin-up.png
+       - phd-flopper.png
+    
+    2. En home.html, reemplaza el emoji por:
+       <img src="img/nombre-perk.png" alt="Nombre" style="width: 80px; height: 80px;">
+    
+    O puedes usar background-image aquí en CSS
+    */
+}
+
+.perk-card h3 {
+    font-size: 1.3rem;
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+}
+
+.perk-price {
+    font-size: 0.95rem;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.perk-effect {
+    font-size: 0.9rem;
+    color: var(--color-text-dim);
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.perk-color {
+    width: 100%;
+    height: 5px;
+    border-radius: 3px;
+    margin-top: auto;
+}
+
+/* Estilos específicos de perks */
+.juggernog {
+    border-color: #8B0000;
+}
+
+.juggernog:hover {
+    border-color: #FF0000;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+}
+
+.speed-cola {
+    border-color: #006400;
+}
+
+.speed-cola:hover {
+    border-color: #00FF00;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+}
+
+.quick-revive {
+    border-color: #000080;
+}
+
+.quick-revive:hover {
+    border-color: #0000FF;
+    box-shadow: 0 0 30px rgba(0, 0, 255, 0.5);
+}
+
+.double-tap {
+    border-color: #8B4513;
+}
+
+.double-tap:hover {
+    border-color: #FFA500;
+    box-shadow: 0 0 30px rgba(255, 165, 0, 0.5);
+}
+
+.stamina {
+    border-color: #B8860B;
+}
+
+.stamina:hover {
+    border-color: #FFD700;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.phd {
+    border-color: #4B0082;
+}
+
+.phd:hover {
+    border-color: #9400D3;
+    box-shadow: 0 0 30px rgba(148, 0, 211, 0.5);
+}
+
+/* Grid de Armas */
+.weapons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.weapon-card {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(10, 10, 10, 0.98));
+    border: 2px solid var(--color-border);
+    border-radius: 10px;
+    padding: 25px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.weapon-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.weapon-card:hover::before {
+    opacity: 1;
+}
+
+.weapon-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
+}
+
+.weapon-header {
+    margin-bottom: 15px;
+}
+
+.weapon-tier {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.legendary .weapon-tier {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #000;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+.epic .weapon-tier {
+    background: linear-gradient(135deg, #9400D3, #8B008B);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(148, 0, 211, 0.6);
+}
+
+.rare .weapon-tier {
+    background: linear-gradient(135deg, #4169E1, #0000CD);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(65, 105, 225, 0.6);
+}
+
+.weapon-card.legendary {
+    border-color: #FFD700;
+}
+
+.weapon-card.legendary:hover {
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
+}
+
+.weapon-card.epic {
+    border-color: #9400D3;
+}
+
+.weapon-card.epic:hover {
+    box-shadow: 0 0 40px rgba(148, 0, 211, 0.5);
+}
+
+.weapon-card.rare {
+    border-color: #4169E1;
+}
+
+.weapon-card.rare:hover {
+    box-shadow: 0 0 40px rgba(65, 105, 225, 0.5);
+}
+
+.weapon-card h3 {
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+    margin-bottom: 8px;
+}
+
+.weapon-type {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.weapon-stats {
+    margin-bottom: 20px;
+}
+
+.stat-bar {
+    margin-bottom: 12px;
+}
+
+.stat-bar span {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-text);
+    margin-bottom: 5px;
+}
+
+.bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    border-radius: 5px;
+    transition: width 0.8s ease;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.6);
+}
+
+.weapon-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-dim);
+    line-height: 1.6;
+}
+
+/* Footer */
+.main-footer {
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(5, 5, 5, 0.98) 100%);
+    border-top: 3px solid var(--color-primary);
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.footer-content p {
+    margin: 8px 0;
+    font-size: 0.9rem;
+    color: var(--color-text-dim);
+}
+
+.footer-content p:first-child {
+    color: var(--color-secondary);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .category-title {
+        font-size: 1.6rem;
+    }
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cards-grid,
+    .perks-grid,
+    .weapons-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .glitch {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        padding: 30px 20px;
+    }
+
+    .main-title {
+        font-size: 1.3rem;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .category-title {
+        font-size: 1.4rem;
+    }
+}

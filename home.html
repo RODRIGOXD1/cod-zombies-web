@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COD Zombies - Base de Operaciones</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Creepster&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="home-page">
+    <div class="background-overlay"></div>
+    
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <h1 class="main-title glitch" data-text="BLACK OPS ZOMBIES">BLACK OPS ZOMBIES</h1>
+                <p class="header-subtitle">BASE DE OPERACIONES - GRUPO 935</p>
+            </div>
+            <button id="cerrar" class="btn-logout">
+                <span>🚪 CERRAR SESIÓN</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sección de Video -->
+    <section class="video-section">
+        <div class="video-container">
+            <h2 class="section-title">
+                <span class="title-icon">📹</span>
+                ARCHIVO CLASIFICADO - MISIÓN BRIEFING
+            </h2>
+            
+            <div class="video-wrapper">
+                <!-- ============================================
+                     ESPACIO PARA VIDEO - Instrucciones:
+                     ============================================
+                     
+                     OPCIÓN 1 - Video de YouTube (MÁS FÁCIL):
+                     Reemplaza todo el bloque <video> por:
+                     
+                     <iframe 
+                         width="100%" 
+                         height="600" 
+                         src="https://www.youtube.com/embed/VIDEO_ID" 
+                         frameborder="0" 
+                         allowfullscreen
+                         style="border-radius: 10px;">
+                     </iframe>
+                     
+                     Ejemplo real de COD Zombies:
+                     <iframe width="100%" height="600" 
+                         src="https://www.youtube.com/embed/QtBDL8EiNZo" 
+                         frameborder="0" allowfullscreen 
+                         style="border-radius: 10px;">
+                     </iframe>
+                     
+                     --------------------------------------------
+                     
+                     OPCIÓN 2 - Video Local (en tu carpeta):
+                     1. Crea carpeta /videos/
+                     2. Guarda tu video: zombies-intro.mp4
+                     3. Cambia la línea de abajo a:
+                     
+                     <source src="videos/zombies-intro.mp4" type="video/mp4">
+                     
+                     --------------------------------------------
+                     
+                     OPCIÓN 3 - Video desde Google Drive:
+                     1. Sube video a Google Drive
+                     2. Obtén el ID del enlace
+                     3. Cambia la línea de abajo a:
+                     
+                     <source src="https://drive.google.com/uc?export=download&id=TU_ID" type="video/mp4">
+                     
+                     ============================================
+                -->
+                
+                <video id="missionVideo" width="100%" controls poster="">
+                    <!-- CAMBIA ESTA LÍNEA según el método que elijas: -->
+                    <source src="video/videoplayback.mp4" type="video/mp4">
+                    
+                    <!-- Ejemplos (descomenta el que quieras usar):
+                    
+                    Video local:
+                    <source src="videos/zombies-intro.mp4" type="video/mp4">
+                    
+                    Google Drive:
+                    <source src="https://drive.google.com/uc?export=download&id=TU_ID_AQUI" type="video/mp4">
+                    
+                    Otro enlace directo:
+                    <source src="https://tu-sitio.com/video.mp4" type="video/mp4">
+                    -->
+                    
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+                
+                <div class="video-overlay">
+                    <p class="classified-stamp">CLASIFICADO</p>
+                </div>
+            </div>
+            
+            <!-- ============================================
+                 REPRODUCTOR DE AUDIO DE FONDO
+                 ============================================
+                 Se reproduce automáticamente cuando pausas el video
+                 Para cambiar la canción, guarda tu archivo en:
+                 /audio/background-music.mp3
+                 ============================================
+            -->
+            <audio id="backgroundMusic" loop>
+                <source src="audio/Shi No Numa Song - The One - Elena Siegman - Lyrics [Official].mp3" type="audio/mpeg">
+                <source src="audio/background-music.ogg" type="audio/ogg">
+                Tu navegador no soporta audio HTML5.
+            </audio>
+        </div>
+    </section>
+
+    <!-- Sección de Categorías -->
+    <section class="categories-section">
+        <div class="container">
+            
+            <!-- PERSONAJES PRIMIS -->
+            <div class="category-block">
+                <h2 class="category-title">
+                    <span class="icon">👥</span>
+                    OPERADORES PRIMIS
+                </h2>
+                
+                <div class="cards-grid">
+                    <div class="character-card">
+                        <div class="card-image primis-1"></div>
+                        <div class="card-content">
+                            <h3>Edward Richtofen</h3>
+                            <p class="character-role">Científico - Grupo 935</p>
+                            <p class="character-desc">Brillante pero perturbado científico alemán experto en Element 115.</p>
+                            <div class="stats">
+                                <span class="stat">⚡ Velocidad: 8/10</span>
+                                <span class="stat">💪 Fuerza: 7/10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="character-card">
+                        <div class="card-image primis-2"></div>
+                        <div class="card-content">
+                            <h3>Nikolai Belinski</h3>
+                            <p class="character-role">Soldado del Ejército Rojo</p>
+                            <p class="character-desc">Veterano ruso con amor por la vodka y el combate cuerpo a cuerpo.</p>
+                            <div class="stats">
+                                <span class="stat">⚡ Velocidad: 6/10</span>
+                                <span class="stat">💪 Fuerza: 9/10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="character-card">
+                        <div class="card-image primis-3"></div>
+                        <div class="card-content">
+                            <h3>Takeo Masaki</h3>
+                            <p class="character-role">Capitán Imperial Japonés</p>
+                            <p class="character-desc">Guerrero samurái con honor inquebrantable y habilidades letales.</p>
+                            <div class="stats">
+                                <span class="stat">⚡ Velocidad: 9/10</span>
+                                <span class="stat">💪 Fuerza: 7/10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="character-card">
+                        <div class="card-image primis-4"></div>
+                        <div class="card-content">
+                            <h3>"Tank" Dempsey</h3>
+                            <p class="character-role">Marine de EEUU</p>
+                            <p class="character-desc">Marine estadounidense duro como el acero, especialista en armas pesadas.</p>
+                            <div class="stats">
+                                <span class="stat">⚡ Velocidad: 7/10</span>
+                                <span class="stat">💪 Fuerza: 10/10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PERKS (BEBIDAS) -->
+            <div class="category-block perks-section">
+                <h2 class="category-title">
+                    <span class="icon">🧪</span>
+                    PERKS - MEJORAS QUÍMICAS
+                </h2>
+                
+                <div class="perks-grid">
+                    <div class="perk-card juggernog">
+                        <div class="perk-icon">🛡️</div>
+                        <h3>Juggernog</h3>
+                        <p class="perk-price">💰 2500 Puntos</p>
+                        <p class="perk-effect">Incrementa tu salud significativamente. ¡Esencial para la supervivencia!</p>
+                        <div class="perk-color" style="background: linear-gradient(135deg, #8B0000, #FF0000);"></div>
+                    </div>
+
+                    <div class="perk-card speed-cola">
+                        <div class="perk-icon">⚡</div>
+                        <h3>Speed Cola</h3>
+                        <p class="perk-price">💰 3000 Puntos</p>
+                        <p class="perk-effect">Recarga tus armas a velocidad sobrehumana. El tiempo es vida.</p>
+                        <div class="perk-color" style="background: linear-gradient(135deg, #006400, #00FF00);"></div>
+                    </div>
+
+                    <div class="perk-card quick-revive">
+                        <div class="perk-icon">💉</div>
+                        <h3>Quick Revive</h3>
+                        <p class="perk-price">💰 1500 Puntos</p>
+                        <p class="perk-effect">Revive aliados más rápido o auto-revive si juegas solo.</p>
+                        <div class="perk-color" style="background: linear-gradient(135deg, #000080, #0000FF);"></div>
+                    </div>
+
+                    <div class="perk-card double-tap">
+                        <div class="perk-icon">🎯</div>
+                        <h3>Double Tap Root Beer</h3>
+                        <p class="perk-price">💰 2000 Puntos</p>
+                        <p class="perk-effect">Duplica tu cadencia de fuego. Más balas = más zombies muertos.</p>
+                        <div class="perk-color" style="background: linear-gradient(135deg, #8B4513, #FFA500);"></div>
+                    </div>
+
+                    <div class="perk-card stamina">
+                        <div class="perk-icon">🏃</div>
+                        <h3>Stamin-Up</h3>
+                        <p class="perk-price">💰 2000 Puntos</p>
+                        <p class="perk-effect">Corre más tiempo sin cansarte. Perfecta para kiting.</p>
+                        <div class="perk-color" style="background: linear-gradient(135deg, #FFFF00, #FFD700);"></div>
+                    </div>
+
+                    <div class="perk-card phd">
+                        <div class="perk-icon">💥</div>
+                        <h3>PhD Flopper</h3>
+                        <p class="perk-price">💰 2000 Puntos</p>
+                        <p class="perk-effect">Inmune a daño explosivo y de caída. Crea explosiones al caer.</p>
+                        <div class="perk-color" style="background: linear-gradient(135deg, #4B0082, #9400D3);"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ARMAS ICÓNICAS -->
+            <div class="category-block weapons-section">
+                <h2 class="category-title">
+                    <span class="icon">🔫</span>
+                    ARSENAL LEGENDARIO
+                </h2>
+                
+                <div class="weapons-grid">
+                    <div class="weapon-card legendary">
+                        <div class="weapon-header">
+                            <span class="weapon-tier">⭐ LEGENDARIA</span>
+                        </div>
+                        <h3>Ray Gun</h3>
+                        <p class="weapon-type">Arma de Energía - Caja Misteriosa</p>
+                        <div class="weapon-stats">
+                            <div class="stat-bar">
+                                <span>Daño</span>
+                                <div class="bar"><div class="fill" style="width: 100%;"></div></div>
+                            </div>
+                            <div class="stat-bar">
+                                <span>Cadencia</span>
+                                <div class="bar"><div class="fill" style="width: 70%;"></div></div>
+                            </div>
+                            <div class="stat-bar">
+                                <span>Munición</span>
+                                <div class="bar"><div class="fill" style="width: 60%;"></div></div>
+                            </div>
+                        </div>
+                        <p class="weapon-desc">El arma más icónica. Dispara proyectiles de energía devastadores.</p>
+                    </div>
+
+                    <div class="weapon-card legendary">
+                        <div class="weapon-header">
+                            <span class="weapon-tier">⭐ LEGENDARIA</span>
+                        </div>
+                        <h3>Thunder Gun</h3>
+                        <p class="weapon-type">Arma Wonder - Kino der Toten</p>
+                        <div class="weapon-stats">
+                            <div class="stat-bar">
+                                <span>Daño</span>
+                                <div class="bar"><div class="fill" style="width: 100%;"></div></div>
+                            </div>
+                            <div class="stat-bar">
+                                <span>Cadencia</span>
+                                <div class="bar"><div class="fill" style="width: 40%;"></div></div>
+                            </div>
+                            <div class="stat-bar">
+                                <span>Munición</span>
+                                <div class="bar"><div class="fill" style="width: 30%;"></div></div>
+                            </div>
+                        </div>
+                        <p class="weapon-desc">Lanza una onda de aire comprimido que aniquila hordas enteras.</p>
+                    </div>
+
+                    <div class="weapon-card epic">
+                        <div class="weapon-header">
+                            <span class="weapon-tier">💜 ÉPICA</span>
+                        </div>
+                        <h3>Pack-a-Punched M1911</h3>
+                        <p class="weapon-type">Pistola Mejorada - Mustang & Sally</p>
+                        <div class="weapon-stats">
+                            <div class="stat-bar">
+                                <span>Daño</span>
+                                <div class="bar"><div class="fill" style="width: 85%;"></div></div>
+                            </div>
+                            <div class="stat-bar">
+                                <span>Cadencia</span>
+                                <div class="bar"><div class="fill" style="width: 80%;"></div></div>
+                            </div>
+                            <div class="stat-bar">
+                                <span>Munición</span>
+                                <div class="bar"><div class="fill" style="width: 50%;"></div></div>
+                            </div>
+                        </div>
+                        <p class="weapon-desc">Pistolas akimbo que disparan granadas explosivas.</p>
+                    </div>
+
+                    <div class="weapon-card epic">
+                        <div class="weapon-header">
+                            <span class="weapon-tier">💜 ÉPICA</span>
+                        </div>
+                        <h3>Wunderwaffe DG-2</h3>
+                        <p class="weapon-type">Arma Wonder - Der Riese</p>
+                        <div class="weapon-stats">
+                            <div class="stat-bar">
+                                <span>Daño</span>
+                                <div class="bar"><div class="fill" style="width: 95%;"></div></div>
+                            </div>
+                            <div class="stat-bar">
+                                <span>Cadencia</span>
+                                <div class="bar"><div class="fill" style="width: 45%;"></div></div>
+                            </div>
+                            <div class="stat-bar">
+                                <span>Munición</span>
+                                <div class="bar"><div class="fill" style="width: 35%;"></div></div>
+                            </div>
+                        </div>
+                        <p class="weapon-desc">Dispara rayos eléctricos que saltan entre múltiples zombies.</p>
+                    </div>
+
+                    <div class="weapon-card rare">
+                        <div class="weapon-header">
+                            <span class="weapon-tier">🔵 RARA</span>
+                        </div>
+                        <h3>Galil Mejorada</h3>
+                        <p class="weapon-type">Rifle de Asalto - Lamentation</p>
+                        <div class="weapon-stats">
+                            <div class="stat-bar">
+                                <span>Daño</span>
+                                <div class="bar"><div class="fill" style="width: 75%;"></div></div>
+                            </div>
+                            <div class="stat-bar">
+                                <span>Cadencia</span>
+                                <div class="bar"><div class="fill" style="width: 85%;"></div></div>
+                            </div>
+                            <div class="stat-bar">
+                                <span>Munición</span>
+                                <div class="bar"><div class="fill" style="width: 90%;"></div></div>
+                            </div>
+                        </div>
+                        <p class="weapon-desc">Rifle confiable con gran capacidad de munición mejorada.</p>
+                    </div>
+
+                    <div class="weapon-card rare">
+                        <div class="weapon-header">
+                            <span class="weapon-tier">🔵 RARA</span>
+                        </div>
+                        <h3>Monkey Bomb</h3>
+                        <p class="weapon-type">Equipamiento Táctico</p>
+                        <div class="weapon-stats">
+                            <div class="stat-bar">
+                                <span>Daño</span>
+                                <div class="bar"><div class="fill" style="width: 100%;"></div></div>
+                            </div>
+                            <div class="stat-bar">
+                                <span>Utilidad</span>
+                                <div class="bar"><div class="fill" style="width: 100%;"></div></div>
+                            </div>
+                            <div class="stat-bar">
+                                <span>Cantidad</span>
+                                <div class="bar"><div class="fill" style="width: 20%;"></div></div>
+                            </div>
+                        </div>
+                        <p class="weapon-desc">Granada que atrae zombies con música antes de explotar.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>⚠ GRUPO 935 - INVESTIGACIÓN CLASIFICADA ⚠</p>
+            <p>Element 115 Research Division | Der Riese Facility</p>
+            <p class="coordinates">📍 Coordenadas: 51°31'12"N 0°07'40"W</p>
+        </div>
+    </footer>
+
+    <!-- Espacio reservado para scripts de Firebase -->
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script> 
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script> 
+    
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

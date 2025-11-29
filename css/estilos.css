@@ -1028,6 +1028,18 @@ body {
     .glitch {
         font-size: 2rem;
     }
+
+    /* Ajustar sello CLASIFICADO en tablets y móviles */
+    .video-overlay {
+        top: 10px;
+        right: 10px;
+    }
+
+    .classified-stamp {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+        letter-spacing: 2px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1046,4 +1058,18 @@ body {
     .category-title {
         font-size: 1.4rem;
     }
+
+    /* Ajustar sello CLASIFICADO en móviles pequeños */
+    .video-overlay {
+        top: 5px;
+        right: 5px;
+    }
+
+    .classified-stamp {
+        font-size: 0.7rem;
+        padding: 6px 12px;
+        letter-spacing: 1px;
+        border: 2px solid var(--color-secondary);
+    }
 }
+
